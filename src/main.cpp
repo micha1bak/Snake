@@ -14,6 +14,7 @@ int main()
 
     window.setFramerateLimit(144);
     const Grid grid(15,15,50.0);
+    Snake snake({{7,7}, {7, 8}, {7, 9} });
 
     while (window.isOpen())
     {
@@ -26,6 +27,7 @@ int main()
         }
         window.clear();
         window.draw(grid);
+        window.draw(snake);
         window.display();
     }
     return 0;

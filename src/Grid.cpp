@@ -3,7 +3,7 @@
 #include "SFML/Graphics/RenderTarget.hpp"
 
 Grid::Grid(int rows, int cols, float cellSize)
-		: rows(rows), cols(cols), cellSize(cellSize)
+		: rows_(rows), cols_(cols), cellSize_(cellSize)
 {
 	for (int y = 0; y < rows; ++y)
 	{
@@ -13,7 +13,7 @@ Grid::Grid(int rows, int cols, float cellSize)
 			cell.setPosition(sf::Vector2f(x * cellSize, y * cellSize));
 			cell.setFillColor(sf::Color::Transparent);
 			cell.setOutlineThickness(1.f);
-			cell.setOutlineColor(sf::Color(100, 100, 100));
+			cell.setOutlineColor(sf::Color(255, 255, 255));
 			cells.push_back(cell);
 		}
 	}
