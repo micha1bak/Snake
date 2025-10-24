@@ -15,6 +15,9 @@ FetchContent_MakeAvailable(SFML)
 add_executable(main src/main.cpp
         src/Grid.cpp
         src/Game.cpp
-        src/Snake.cpp)
+        src/Snake.cpp
+        src/Clock.cpp
+        src/Clock.h
+        src/Clock.h)
 target_compile_features(main PRIVATE cxx_std_17)
 target_link_libraries(main PRIVATE SFML::Graphics)

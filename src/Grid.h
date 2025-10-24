@@ -9,7 +9,6 @@ class Grid : public sf::Drawable
 private:
 	int rows_, cols_;
 	float cellSize_;
-	std::vector<sf::RectangleShape> cells;
 public:
 	Grid(int rows, int cols, float cellSize);
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;

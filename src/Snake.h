@@ -9,11 +9,15 @@ class Snake : public sf::Drawable
 {
 private:
 	float cellSize_ = 50.f;
-	std::vector<std::vector<int>> pos_;
-	std::vector<sf::RectangleShape> cells;
+	std::vector<sf::Vector2i> body_;
+	sf::Vector2i direction;
+	bool alive = true;
 
 public:
-	explicit Snake(const std::vector<std::vector<int>>& pos);
+	explicit Snake(const std::vector<sf::Vector2i>& body);
+	void move();
+	void setDirection(const sf::Vector2i& direction);
+
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 };
 

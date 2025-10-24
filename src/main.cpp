@@ -12,9 +12,10 @@ int main()
         sf::State::Windowed,
         {});
 
-    window.setFramerateLimit(144);
+    window.setFramerateLimit(1);
     const Grid grid(15,15,50.0);
-    Snake snake({{7,7}, {7, 8}, {7, 9} });
+    std::vector<sf::Vector2i> currentPosition = {sf::Vector2i(7, 7), sf::Vector2i(7,8)};
+    Snake snake(currentPosition);
 
     while (window.isOpen())
     {
@@ -25,6 +26,8 @@ int main()
                 window.close();
             }
         }
+
+        snake.move();
         window.clear();
         window.draw(grid);
         window.draw(snake);

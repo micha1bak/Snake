@@ -4,22 +4,27 @@
 #include "SFML/Graphics/RectangleShape.hpp"
 #include "SFML/Graphics/RenderTarget.hpp"
 
-Snake::Snake(const std::vector<std::vector<int>>& pos)
-	: pos_(pos)
+Snake::Snake(const std::vector<sf::Vector2i>& body) : body_(body) {}
+
+void Snake::move()
 {
-	for (const auto & po : pos)
-	{
-			sf::RectangleShape cell(sf::Vector2f(cellSize_, cellSize_));
-			cell.setPosition(sf::Vector2f(po[0] * cellSize_, po[1] * cellSize_));
-			cell.setFillColor(sf::Color(0, 200, 0));
-			cells.push_back(cell);
-	}
+	body_[0].y++;
+	body_[1].y++;
+	body_[2].y++;
+}
+
+void Snake::setDirection(const sf::Vector2i &direction)
+{
+
 }
 
 void Snake::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-	for (const auto& cell : cells)
+	for (const sf::Vector2i& bodyChunk : body_)
 	{
+		sf::RectangleShape cell(sf::Vector2f(cellSize_, cellSize_));
+		cell.setPosition(sf::Vector2f((float)bodyChunk.x * cellSize_, (float)bodyChunk.y * cellSize_));
+		cell.setFillColor(sf::Color(0, 200, 0));
 		target.draw(cell, states);
 	}
 }
