@@ -4,7 +4,13 @@
 #include "SFML/Graphics/RectangleShape.hpp"
 #include "SFML/Graphics/RenderTarget.hpp"
 
-Snake::Snake(const std::vector<sf::Vector2i>& body) : body_(body) {}
+Snake::Snake(
+	const std::vector<sf::Vector2i>& body, sf::Vector2i direction, float cellSize, bool alive) :
+	body_(body),
+	cellSize_(cellSize),
+	alive_(alive),
+	direction_(direction)
+	{}
 
 void Snake::move()
 {

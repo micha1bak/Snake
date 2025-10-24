@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
-#include "Snake.h"
 #include "Game.h"
-#include "Grid.h"
+
+
 
 int main()
 {
@@ -11,7 +11,7 @@ int main()
         sf::Style::Close,
         sf::State::Windowed,
         {});
-    window.setFramerateLimit(1);
+    window.setFramerateLimit(2);
 
     Game game;
 

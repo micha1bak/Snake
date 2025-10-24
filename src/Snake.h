@@ -7,18 +7,21 @@
 
 class Snake : public sf::Drawable
 {
-private:
-	float cellSize_ = 50.f;
-	std::vector<sf::Vector2i> body_;
-	sf::Vector2i direction;
-	bool alive = true;
+	public:
+		Snake(
+			const std::vector<sf::Vector2i>& body = {sf::Vector2i(7, 7), sf::Vector2i(7, 8), sf::Vector2i(7, 9)},
+			sf::Vector2i direction = sf::Vector2i(0,-1),
+			float cellSize = 50.f,
+			bool alive = true);
+		void move();
+		void setDirection(const sf::Vector2i& direction);
+		void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
-public:
-	explicit Snake(const std::vector<sf::Vector2i>& body);
-	void move();
-	void setDirection(const sf::Vector2i& direction);
-
-	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+	private:
+		float cellSize_;
+		std::vector<sf::Vector2i> body_;
+		sf::Vector2i direction_;
+		bool alive_ = true;
 };
 
 
