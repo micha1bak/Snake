@@ -14,15 +14,15 @@ Snake::Snake(
 
 void Snake::move()
 {
-	body_[0].y++;
-	body_[1].y++;
-	body_[2].y++;
+	body_[0].y--;
+	body_[1].y--;
+	body_[2].y--;
 }
 
-void Snake::setDirection(const sf::Vector2i &direction)
-{
-
-}
+// void Snake::setDirection(const sf::Vector2i &direction)
+// {
+//
+// }
 
 void Snake::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {

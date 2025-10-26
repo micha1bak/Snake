@@ -1,17 +1,17 @@
 #ifndef SNAKE_GRID_H
 #define SNAKE_GRID_H
 #include "SFML/Graphics/Drawable.hpp"
-#include "SFML/Graphics/RectangleShape.hpp"
+
 
 
 class Grid : public sf::Drawable
 {
+public:
+	explicit Grid(int rows = 15, int cols = 15, float cellSize = 50.f);
+	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 private:
 	int rows_, cols_;
 	float cellSize_;
-public:
-	Grid(int rows, int cols, float cellSize);
-	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 };
 
 
