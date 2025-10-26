@@ -14,8 +14,11 @@ class Snake : public sf::Drawable
 			float cellSize = 50.f,
 			bool alive = true);
 		void move();
+		void grow();
 		void setDirection(const sf::Vector2i& direction);
 		sf::Vector2i getDirection() const;
+		sf::Vector2i getHead() const;
+		std::vector<sf::Vector2i> getBody() const;
 		void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
 	private:

@@ -18,6 +18,11 @@ void Snake::move()
 	body_.pop_back();
 }
 
+void Snake::grow()
+{
+	body_.push_back(body_[body_.size() - 1]);
+}
+
 void Snake::setDirection(const sf::Vector2i &direction)
 {
 	direction_ = direction;
@@ -26,6 +31,16 @@ void Snake::setDirection(const sf::Vector2i &direction)
 sf::Vector2i Snake::getDirection() const
 {
 	return direction_;
+}
+
+sf::Vector2i Snake::getHead() const
+{
+	return body_[0];
+}
+
+std::vector<sf::Vector2i> Snake::getBody() const
+{
+	return body_;
 }
 
 void Snake::draw(sf::RenderTarget& target, sf::RenderStates states) const

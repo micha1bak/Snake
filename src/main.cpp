@@ -1,3 +1,4 @@
+#include <random>
 #include <SFML/Graphics.hpp>
 #include <SFML/Window/Event.hpp>
 #include "Grid.h"
@@ -14,11 +15,15 @@ int main()
         sf::Style::Close,
         sf::State::Windowed,
         {});
-    window.setFramerateLimit(2);
+    window.setFramerateLimit(4);
 
     Grid grid;
     Snake snake;
     Food food;
+
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> dist(0, 15);
 
     while (window.isOpen())
     {
@@ -52,13 +57,31 @@ int main()
             }
         }
 
-
+        if (snake.getHead() == food.getPosition())
+        {
+            sf::Vector2i newPos = sf::Vector2i(dist(gen), dist(gen));
+            bool unique = false;
+            while (!unique)
+            {
+                for (int i = 0; i < snake.getBody().size(); ++i)
+                {
+                    if (newPos == snake.getBody()[i])
+                    {
+                        newPos = sf::Vector2i(dist(gen), dist(gen));
+                        i = 0;
+                    }
+                }
+                unique = true;
+            }
+            food.setPosition(newPos);
+            snake.grow();
+        }
 
         window.clear();
         window.draw(grid);
         snake.move();
-        window.draw(snake);
         window.draw(food);
+        window.draw(snake);
         window.display();
     }
     return 0;
