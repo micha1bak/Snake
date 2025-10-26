@@ -8,7 +8,7 @@
 class Snake : public sf::Drawable
 {
 	public:
-		Snake(
+		explicit Snake(
 			const std::vector<sf::Vector2i>& body = {sf::Vector2i(7, 7), sf::Vector2i(7, 8), sf::Vector2i(7, 9)},
 			sf::Vector2i direction = sf::Vector2i(0,-1),
 			float cellSize = 50.f,
