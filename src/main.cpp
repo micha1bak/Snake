@@ -31,7 +31,7 @@ int main()
             {
                 if (event->getIf<sf::Event::KeyPressed>()->code == sf::Keyboard::Key::W)
                 {
-                    snake.move();
+                    snake.setDirection(sf::Vector2i(0, -1));
                 }
             }
 

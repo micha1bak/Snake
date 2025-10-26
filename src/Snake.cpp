@@ -19,10 +19,15 @@ void Snake::move()
 	body_[2].y--;
 }
 
-// void Snake::setDirection(const sf::Vector2i &direction)
-// {
-//
-// }
+void Snake::setDirection(const sf::Vector2i &direction)
+{
+	direction_ = direction;
+}
+
+sf::Vector2i Snake::getDirection() const
+{
+	return direction_;
+}
 
 void Snake::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
