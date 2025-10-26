@@ -14,9 +14,8 @@ Snake::Snake(
 
 void Snake::move()
 {
-	body_[0].y--;
-	body_[1].y--;
-	body_[2].y--;
+	body_.insert(body_.begin(), body_[0] + direction_);
+	body_.pop_back();
 }
 
 void Snake::setDirection(const sf::Vector2i &direction)

@@ -29,9 +29,23 @@ int main()
             }
             if (event->is<sf::Event::KeyPressed>())
             {
-                if (event->getIf<sf::Event::KeyPressed>()->code == sf::Keyboard::Key::W)
+
+                switch (event->getIf<sf::Event::KeyPressed>()->code)
                 {
-                    snake.setDirection(sf::Vector2i(0, -1));
+                    case sf::Keyboard::Key::W:
+                        snake.setDirection(sf::Vector2i(0, -1));
+                        break;
+                    case sf::Keyboard::Key::S:
+                        snake.setDirection(sf::Vector2i(0, 1));
+                        break;
+                    case sf::Keyboard::Key::A:
+                        snake.setDirection(sf::Vector2i(-1, 0));
+                        break;
+                    case sf::Keyboard::Key::D:
+                        snake.setDirection(sf::Vector2i(1, 0));
+                        break;
+                    default:
+                        break;
                 }
             }
 
@@ -39,6 +53,7 @@ int main()
 
         window.clear();
         window.draw(grid);
+        snake.move();
         window.draw(snake);
         window.display();
     }
