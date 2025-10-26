@@ -5,8 +5,8 @@
 #include "SFML/Graphics/RenderTarget.hpp"
 
 
-Food::Food(sf::Vector2i pos, float cellSize, bool alive) :
-        pos_(pos), cellSize_(cellSize), alive_(alive)
+Food::Food(sf::Vector2i pos, float cellSize) :
+        pos_(pos), cellSize_(cellSize)
 {
 
 }

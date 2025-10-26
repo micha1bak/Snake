@@ -1,4 +1,7 @@
 #include "Snake.h"
+
+#include <iostream>
+#include <ostream>
 #include <vector>
 
 #include "SFML/Graphics/RectangleShape.hpp"
@@ -8,12 +11,22 @@ Snake::Snake(
 	const std::vector<sf::Vector2i>& body, sf::Vector2i direction, float cellSize, bool alive) :
 	body_(body),
 	cellSize_(cellSize),
-	alive_(alive),
+	isAlive_(alive),
 	direction_(direction)
 	{}
 
 void Snake::move()
 {
+	//std::cout << (body_[0] + direction_).x << std::endl;
+	if ((body_[0] + direction_).x > 18 || (body_[0] + direction_).x < 1)
+	{
+		isAlive_ = false;
+	}
+	//std::cout << (body_[0] + direction_).y << std::endl;
+	if ((body_[0] + direction_).y > 18 || (body_[0] + direction_).y < 1)
+	{
+		isAlive_ = false;
+	}
 	body_.insert(body_.begin(), body_[0] + direction_);
 	body_.pop_back();
 }

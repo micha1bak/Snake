@@ -16,9 +16,9 @@ void Grid::draw(sf::RenderTarget& target, sf::RenderStates states) const
 		{
 			sf::RectangleShape cell(sf::Vector2f(cellSize_, cellSize_));
 			cell.setPosition(sf::Vector2f((float)x * cellSize_, (float)y * cellSize_));
-			cell.setFillColor(sf::Color::Transparent);
+			cell.setFillColor(sf::Color::Blue);
 			cell.setOutlineThickness(1.f);
-			cell.setOutlineColor(sf::Color(255, 255, 255));
+			cell.setOutlineColor(sf::Color::Black);
 			target.draw(cell, states);
 		}
 	}

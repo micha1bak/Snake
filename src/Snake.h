@@ -12,7 +12,7 @@ class Snake : public sf::Drawable
 			const std::vector<sf::Vector2i>& body = {sf::Vector2i(7, 7), sf::Vector2i(7, 8), sf::Vector2i(7, 9)},
 			sf::Vector2i direction = sf::Vector2i(0,-1),
 			float cellSize = 50.f,
-			bool alive = true);
+			bool isAlive_ = true);
 		void move();
 		void grow();
 		void setDirection(const sf::Vector2i& direction);
@@ -20,12 +20,12 @@ class Snake : public sf::Drawable
 		sf::Vector2i getHead() const;
 		std::vector<sf::Vector2i> getBody() const;
 		void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+		bool isAlive_;
 
 	private:
 		float cellSize_;
 		std::vector<sf::Vector2i> body_;
 		sf::Vector2i direction_;
-		bool alive_;
 };
 
 

@@ -1,3 +1,4 @@
+#include <iostream>
 #include <random>
 #include <SFML/Graphics.hpp>
 #include <SFML/Window/Event.hpp>
@@ -10,7 +11,7 @@
 int main()
 {
      sf::RenderWindow window(
-        sf::VideoMode({750u, 750u}),
+        sf::VideoMode({1000u, 1000u}),
         "Snake",
         sf::Style::Close,
         sf::State::Windowed,
@@ -20,10 +21,11 @@ int main()
     Grid grid;
     Snake snake;
     Food food;
+    bool pause = false;
 
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_int_distribution<int> dist(0, 15);
+    std::uniform_int_distribution<int> dist(0, 19);
 
     while (window.isOpen())
     {
@@ -50,6 +52,12 @@ int main()
                         break;
                     case sf::Keyboard::Key::D:
                         snake.setDirection(sf::Vector2i(1, 0));
+                        break;
+                    case sf::Keyboard::Key::Escape:
+                        pause = true;
+                        break;
+                    case sf::Keyboard::Key::Space:
+                        pause = false;
                         break;
                     default:
                         break;
@@ -79,9 +87,13 @@ int main()
 
         window.clear();
         window.draw(grid);
-        snake.move();
-        window.draw(food);
-        window.draw(snake);
+        //std::cout << snake.isAlive_ << std::endl;
+        if (snake.isAlive_ && !pause)
+        {
+            snake.move();
+            window.draw(food);
+            window.draw(snake);
+        }
         window.display();
     }
     return 0;
