@@ -2,6 +2,7 @@
 #include <SFML/Window/Event.hpp>
 #include "Grid.h"
 #include "Snake.h"
+#include "Food.h"
 
 
 
@@ -17,6 +18,7 @@ int main()
 
     Grid grid;
     Snake snake;
+    Food food;
 
     while (window.isOpen())
     {
@@ -55,6 +57,7 @@ int main()
         window.draw(grid);
         snake.move();
         window.draw(snake);
+        window.draw(food);
         window.display();
     }
     return 0;

@@ -18,6 +18,8 @@ FetchContent_MakeAvailable(SFML)
 add_executable(main src/main.cpp
         src/Grid.cpp
         src/Snake.cpp
+        src/Food.cpp
+        src/Food.h
 )
 target_compile_features(main PRIVATE cxx_std_17)
 target_link_libraries(main PRIVATE SFML::Graphics)

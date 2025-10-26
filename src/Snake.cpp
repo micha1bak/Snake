@@ -34,7 +34,7 @@ void Snake::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	{
 		sf::RectangleShape cell(sf::Vector2f(cellSize_, cellSize_));
 		cell.setPosition(sf::Vector2f((float)bodyChunk.x * cellSize_, (float)bodyChunk.y * cellSize_));
-		cell.setFillColor(sf::Color(0, 200, 0));
+		cell.setFillColor(sf::Color::Green);
 		target.draw(cell, states);
 	}
 }
