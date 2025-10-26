@@ -18,3 +18,13 @@ void Food::draw(sf::RenderTarget &target, sf::RenderStates states) const
         food.setFillColor(sf::Color::Red);
         target.draw(food, states);
 }
+
+void Food::setPosition(const sf::Vector2i &pos)
+{
+        pos_ = pos;
+}
+
+sf::Vector2i Food::getPosition() const
+{
+        return pos_;
+}

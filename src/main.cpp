@@ -22,7 +22,7 @@ int main()
 
     while (window.isOpen())
     {
-
+        // Events
         while (const std::optional event = window.pollEvent())
         {
             if (event->is<sf::Event::Closed>())
@@ -50,8 +50,9 @@ int main()
                         break;
                 }
             }
-
         }
+
+
 
         window.clear();
         window.draw(grid);

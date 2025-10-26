@@ -9,6 +9,8 @@ class Food : public sf::Drawable
 public:
     explicit Food(sf::Vector2i pos = sf::Vector2i(1,1), float cellSize = 50.f, bool alive = true);
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+    void setPosition(const sf::Vector2i& pos);
+    sf::Vector2i getPosition() const;
 private:
     sf::Vector2i pos_;
     float cellSize_;
