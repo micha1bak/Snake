@@ -44,13 +44,25 @@ int main()
                     case sf::Keyboard::Key::W:
                         snake.setDirection(sf::Vector2i(0, -1));
                         break;
+                    case sf::Keyboard::Key::Up:
+                        snake.setDirection(sf::Vector2i(0, -1));
+                        break;
                     case sf::Keyboard::Key::S:
+                        snake.setDirection(sf::Vector2i(0, 1));
+                        break;
+                    case sf::Keyboard::Key::Down:
                         snake.setDirection(sf::Vector2i(0, 1));
                         break;
                     case sf::Keyboard::Key::A:
                         snake.setDirection(sf::Vector2i(-1, 0));
                         break;
+                    case sf::Keyboard::Key::Left:
+                        snake.setDirection(sf::Vector2i(-1, 0));
+                        break;
                     case sf::Keyboard::Key::D:
+                        snake.setDirection(sf::Vector2i(1, 0));
+                        break;
+                    case sf::Keyboard::Key::Right:
                         snake.setDirection(sf::Vector2i(1, 0));
                         break;
                     case sf::Keyboard::Key::Escape:
@@ -58,6 +70,7 @@ int main()
                         break;
                     case sf::Keyboard::Key::Space:
                         pause = false;
+                        snake.restart();
                         break;
                     default:
                         break;

@@ -21,6 +21,7 @@ class Snake : public sf::Drawable
 		std::vector<sf::Vector2i> getBody() const;
 		void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 		bool isAlive_;
+		void restart();
 
 	private:
 		float cellSize_;

@@ -18,12 +18,12 @@ Snake::Snake(
 void Snake::move()
 {
 	//std::cout << (body_[0] + direction_).x << std::endl;
-	if ((body_[0] + direction_).x > 18 || (body_[0] + direction_).x < 1)
+	if ((body_[0] + direction_).x > 19 || (body_[0] + direction_).x < 0)
 	{
 		isAlive_ = false;
 	}
 	//std::cout << (body_[0] + direction_).y << std::endl;
-	if ((body_[0] + direction_).y > 18 || (body_[0] + direction_).y < 1)
+	if ((body_[0] + direction_).y > 19 || (body_[0] + direction_).y < 0)
 	{
 		isAlive_ = false;
 	}
@@ -65,4 +65,11 @@ void Snake::draw(sf::RenderTarget& target, sf::RenderStates states) const
 		cell.setFillColor(sf::Color::Green);
 		target.draw(cell, states);
 	}
+}
+
+void Snake::restart()
+{
+	body_ = {sf::Vector2i(7, 7), sf::Vector2i(7, 8), sf::Vector2i(7, 9)};
+	isAlive_ = true;
+	direction_ = sf::Vector2i(0,-1);
 }
