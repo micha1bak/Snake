@@ -17,17 +17,23 @@ Snake::Snake(
 
 void Snake::move()
 {
-	//std::cout << (body_[0] + direction_).x << std::endl;
-	if ((body_[0] + direction_).x > 19 || (body_[0] + direction_).x < 0)
+	sf::Vector2i newHead = body_[0] + direction_;
+	if ((body_[0] + direction_).x > 19 || newHead.x < 0)
 	{
 		isAlive_ = false;
 	}
-	//std::cout << (body_[0] + direction_).y << std::endl;
-	if ((body_[0] + direction_).y > 19 || (body_[0] + direction_).y < 0)
+	if ((body_[0] + direction_).y > 19 || newHead.y < 0)
 	{
 		isAlive_ = false;
 	}
-	body_.insert(body_.begin(), body_[0] + direction_);
+	for (auto cell : body_)
+	{
+		if (cell == newHead)
+		{
+			isAlive_ = false;
+		}
+	}
+	body_.insert(body_.begin(), newHead);
 	body_.pop_back();
 }
 
